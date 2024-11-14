@@ -88,20 +88,21 @@ typedef struct personData
 {
     unsigned int age;
     age_steps_t life_step;
-    char *person_name;
-} my_persion_t;
+
+    char *name;
+} person_t;
 
 int main(int argc, char *argv[])
 {
-    age_steps_t current_step
-    my_persion_t person_one;
+    person_t person;
+    age_steps_t current_step;
 
-    current_step = (person_one.age < 12u) ? CHILD_AGE :
-                   ((person_one.age > 12u) && (person_one.age < 18u)) ? TEEN_AGE  :
-                   ((person_one.age > 18u) && (person_one.age < 60u)) ? ADULT_AGE :
-                   (person_one.age > 60u) ? ELDER_AGE : INVALID_AGE
+    current_step = (person.age < 12u) ? CHILD_AGE :
+                   ((person.age > 12u) && (person.age < 18u)) ? TEEN_AGE  :
+                   ((person.age > 18u) && (person.age < 60u)) ? ADULT_AGE :
+                   (person.age > 60u) ? ELDER_AGE : INVALID_AGE
 
-    person_one.life_step = current_step;
+    person.life_step = current_step;
 
     return 0;
 }
