@@ -9,22 +9,103 @@
 
 ### - 𝐃𝐞𝐟𝐢𝐧𝐞 𝐍𝐚𝐦𝐞𝐬
 
-...
+```
+> Head:       SCREAMING_SNAKE_CASE
+```
+
+```c
+#define ARRAY_SIZE (unsigned int)(100U)
+```
 
 ### - 𝐌𝐚𝐜𝐫𝐨 𝐍𝐚𝐦𝐞𝐬
+```
+> Head:       SCREAMING_SNAKE_CASE
+> Variables:  snake_case
+```
 
-...
+```c
+#define DIVISION_OP(numerator_num, denominator_num) (float)( numerator_num / denominator_num)
+```
 
 ### - 𝐄𝐧𝐮𝐦 𝐍𝐚𝐦𝐞𝐬
 
-...
+```
+> Head:       camelCase
+> Values:     SCREAMING_SNAKE_CASE
+```
+
+```c
+enum enumerationValues
+{
+    FIRST_VALUE,
+    SECOND_VALUE
+};
+```
 
 ### - 𝐒𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 𝐍𝐚𝐦𝐞𝐬
 
+```
+> Head:       camelCase
+> Instance:   snake_case
+> Variables:  snake_case
+```
+
+```c
+struct personData
+{
+    unsigned int person_age;
+    char *person_name;
+}
+
+int main(int argc, char *argv[])
+{
+    struct personData my_person;
+
+    return 0;
+}
+```
 ...
 
 ### - 𝐓𝐲𝐩𝐞𝐝𝐞𝐟 𝐍𝐚𝐦𝐞𝐬
 
+```
+> Head:       snake_case
+> Postfix:     _t
+> Variables:  snake_case
+```
+
+```c
+typedef enum ageSteos
+{
+    CHILD_AGE,
+    TEEN_AGE,
+    ADULT_AGE,
+    ELDER_AGE,
+    INVALID_AGE
+} age_steps_t;
+
+typedef struct personData
+{
+    unsigned int person_age;
+    age_steps_t life_step;
+    char *person_name;
+} my_persion_t;
+
+int main(int argc, char *argv[])
+{
+    age_steps_t current_step
+    my_persion_t person_one;
+
+    current_step = (person_one.person_age < 12u) ? CHILD_AGE :
+                   ((person_one.person_age > 12u) && (person_one.person_age < 18u)) ? TEEN_AGE :
+                   ((person_one.person_age > 18u) && (person_one.person_age < 60u)) ? ADULT_AGE :
+                   (person_one.person_age > 60u) ? ELDER_AGE : INVALID_AGE
+
+    person_one.life_step = current_step;
+
+    return 0;
+}
+```
 ...
 
 ### - 𝐕𝐚𝐫𝐢𝐚𝐛𝐥𝐞 𝐍𝐚𝐦𝐞𝐬
