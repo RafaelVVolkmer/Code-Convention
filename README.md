@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 ```
 
 ```c
-typedef enum ageSteos
+typedef enum ageSteps
 {
     CHILD_AGE,
     TEEN_AGE,
@@ -95,14 +95,20 @@ typedef struct personData
 int main(int argc, char *argv[])
 {
     person_t person;
+
+    unsigned int current_age;
     age_steps_t current_step;
 
-    current_step = (person.age < 12u) ? CHILD_AGE :
-                   ((person.age > 12u) && (person.age < 18u)) ? TEEN_AGE  :
-                   ((person.age > 18u) && (person.age < 60u)) ? ADULT_AGE :
-                   (person.age > 60u) ? ELDER_AGE : INVALID_AGE
+    printf("Insert your age: ");
+    scanf("%i", &current_age);
 
-    person.life_step = current_step;
+    current_step = (current_age < 12u) ? CHILD_AGE :
+                   ((current_age > 12u) && (current_age < 18u)) ? TEEN_AGE  :
+                   ((current_age > 18u) && (current_age < 60u)) ? ADULT_AGE :
+                   (current_age > 60u) ? ELDER_AGE : INVALID_AGE;
+
+    person.age         = current_age;
+    person.life_step   = current_step;
 
     return 0;
 }
