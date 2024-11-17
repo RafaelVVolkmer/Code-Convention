@@ -9,6 +9,11 @@
 
 ### - 𝐃𝐞𝐟𝐢𝐧𝐞 𝐍𝐚𝐦𝐞𝐬
 
+One of the most standard structures in the C language offers a powerful tool for processing attributes at compile time, making coding more dynamic and customizable for the user.
+
+As a standard convention of the language, evidenced by the code present in the largest known repository of these implementations, the Linux Kernel, the convention is to define macros using all uppercase letters, categorized as SCREAMING CASE. Words are separated by "_", thus forming SCREAMING_SNAKE_CASE. This makes the structure more recognizable because when encountering something entirely in uppercase letters, it becomes clear that it is a standard immutable compile-time definition.
+
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```
 > Head:       SCREAMING_SNAKE_CASE
 ```
@@ -16,6 +21,8 @@
 ```c
 #define ARRAY_SIZE (unsigned int)(100U)
 ```
+
+Defines are extremely important and fundamental structures, protected by this convention. They must be strictly adhered to in all C code, regardless of whether the convention proposed in this document is followed or not.
 
 ### - 𝐌𝐚𝐜𝐫𝐨 𝐍𝐚𝐦𝐞𝐬
 ```
