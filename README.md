@@ -115,7 +115,6 @@ int main (void)
 ```
 > Prefix:     CamelCase_ (module name)
 > Head:       camelCase
-
 > Params:     snake_case
 ```
 
