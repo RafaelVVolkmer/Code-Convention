@@ -105,10 +105,37 @@ int main (void)
 {
     int num_one = 1u;
     int num_two = 2u;
+
+    return 0;
 }
 ```
 
 ### - 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧 𝐍𝐚𝐦𝐞𝐬
+
+```
+> Prefix:     CamelCase_ (module name)
+> Head:       camelCase
+
+> Params:     snake_case
+```
+
+```c
+double Calculator_factorialCalculate(unsigned int number) 
+{
+    double ret = 0u;
+
+    if (number == 0u || number == 1u)
+    {
+        ret = 1.0;
+        goto end_of_function;
+    }
+
+    ret = (number * RPNCalculator_factorialCalculate(number - 1u));
+
+end_of_function:
+    return ret;
+} 
+```
 
 ...
 
