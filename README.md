@@ -96,12 +96,22 @@ typedef struct personData
 
 ### - 𝐕𝐚𝐫𝐢𝐚𝐛𝐥𝐞 𝐍𝐚𝐦𝐞𝐬
 
-...
+```
+> Head:       snake_case
+```
+
+```c
+int main (void)
+{
+    int num_one = 1u;
+    int num_two = 2u;
+}
+```
 
 ### - 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧 𝐍𝐚𝐦𝐞𝐬
 
 ...
 
-## > 𝐂𝐨𝐦𝐦𝐞𝐧𝐭𝐬
+# > 𝐂𝐨𝐦𝐦𝐞𝐧𝐭𝐬
 
 # > 𝐆𝐨𝐨𝐝 𝐂𝐨𝐝𝐢𝐧𝐠 𝐏𝐫𝐚𝐜𝐭𝐢𝐜𝐞𝐬 𝐢𝐧 𝐂
