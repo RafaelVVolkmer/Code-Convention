@@ -119,17 +119,17 @@ int main (void)
 ```
 
 ```c
-double Calculator_factorialCalculate(unsigned int number) 
+double Calculator_factorialCalculate(unsigned int base_number) 
 {
     double ret = 0u;
 
-    if (number == 0u || number == 1u)
+    if (base_number == 0u || base_number == 1u)
     {
         ret = 1.0;
         goto end_of_function;
     }
 
-    ret = (number * RPNCalculator_factorialCalculate(number - 1u));
+    ret = (base_number * RPNCalculator_factorialCalculate(base_number - 1u));
 
 end_of_function:
     return ret;
