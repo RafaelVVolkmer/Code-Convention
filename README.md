@@ -53,8 +53,8 @@ enum enumerationValues
 ```c
 struct personData
 {
-    unsigned int person_age;
-    char *person_name;
+    unsigned int     person_age;
+    char             *person_name;
 }
 
 int main(int argc, char *argv[])
@@ -86,8 +86,8 @@ typedef enum ageSteps
 
 typedef struct personData
 {
-    unsigned int age;
-    age_steps_t life_step;
+    unsigned int    age;
+    age_steps_t     life_step;
 
     char *name;
 } person_t;
