@@ -41,15 +41,40 @@ Source file (.c) -> Implementation of the logic for private functions and struct
 
 > 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 
-We have a calculator in C that operates on a state machine. To achieve this, we can separate it into two modules: one that handles the operations and state transitions of the machine, and another responsible for the calculator's operational functions. This results in the creation of four files, two for each module:
+We have a calculator in C:
 
-> 
 ```
 Calculator (module) -> calculator.h / calculator.c
 ```
 
+- In header file (calculator.h):
+```c
+typedef enum calculatorOps
+{
+    CALCULATOR_ADD,
+    CALCULATOR_SUB,
+    CALCULATOR_MUL,
+    CALCULATOR_DIV
+} calculator_ops_t;
+
+int Calculator_makeOperation(int num_a, int num_b, calculator_ops_t operation);
 ```
-StateMachine (module) -> statemachine.h / statemachine.c
+
+- In source file (calculator.c):
+```c
+#include "calculator.h"
+
+int Calculator_makeOperation(int num_a, int num_b, calculator_ops_t operation)
+{
+    int result = 0u;
+
+    result = (operation == CALCULATOR_ADD) ? (int)(num_a + num_b) :
+             (operation == CALCULATOR_SUB) ? (int)(num_a - num_b) :
+             (operation == CALCULATOR_MUL) ? (int)(num_a * num_b) :
+             (operation == CALCULATOR_DIV) ? (int)(num_a / num_b) : 0u;
+
+    return result
+};
 ```
 
 # > 𝐍𝐨𝐦𝐞𝐧𝐜𝐥𝐚𝐭𝐮𝐫𝐞
