@@ -53,7 +53,9 @@ StateMachine (module) -> statemachine.h / statemachine.c
 ```
 
 ## > 𝐍𝐨𝐦𝐞𝐧𝐜𝐥𝐚𝐭𝐮𝐫𝐞
-...
+
+Naming in C is an extremely important aspect. It is always necessary to maintain standardized names, with a clean architecture, following the same flow throughout the code, differentiating the types of structures present. Names should always be designed to facilitate the reader's understanding, making them more palatable. Thus, the convention follows the following terms:
+
 ## 
 ### - 𝐃𝐞𝐟𝐢𝐧𝐞 𝐍𝐚𝐦𝐞𝐬
 ```
