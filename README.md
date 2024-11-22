@@ -8,32 +8,43 @@ I hope that, if it fits your style, you consider adopting all or some aspects of
 
 ## > 𝐀𝐥𝐥𝐦𝐚𝐧 𝐂𝐨𝐝𝐞 𝐒𝐭𝐲𝐥𝐞
 
+The Allman style, also known as BSD indent style, is characterized by placing braces on their own lines. This style enhances readability by clearly delineating code blocks, making it easier to identify the beginning and end of structures such as functions, loops, and conditionals.
+
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
+```c
+int main(void)
+{
+    if (condition)
+    {
+        // Code block
+    }
+    else
+    {
+        // Code block
+    }
+
+    return 0;
+}
+```
+
 ## > 𝐍𝐨𝐦𝐞𝐧𝐜𝐥𝐚𝐭𝐮𝐫𝐞
 ...
 ## 
 ### - 𝐃𝐞𝐟𝐢𝐧𝐞 𝐍𝐚𝐦𝐞𝐬
-
-One of the most standard structures in the C language offers a powerful tool for processing attributes at compile time, making coding more dynamic and customizable for the user.
-
-As a standard convention of the language, evidenced by the code present in the largest known repository of these implementations, the Linux Kernel, the convention is to define macros using all uppercase letters, categorized as SCREAMING CASE. Words are separated by "_", thus forming SCREAMING_SNAKE_CASE. This makes the structure more recognizable because when encountering something entirely in uppercase letters, it becomes clear that it is a standard immutable compile-time definition.
-
-> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```
 > Head:       SCREAMING_SNAKE_CASE
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 #define ARRAY_SIZE (unsigned int)(100U)
 ```
-
-Defines are extremely important and fundamental structures, protected by this convention. They must be strictly adhered to in all C code, regardless of whether the convention proposed in this document is followed or not.
 ## 
 ### - 𝐌𝐚𝐜𝐫𝐨 𝐍𝐚𝐦𝐞𝐬
 ```
 > Head:       SCREAMING_SNAKE_CASE
 > Variables:  snake_case
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 #define DIVISION_OP(numerator_num, denominator_num) (float)( numerator_num / denominator_num)
 ```
@@ -44,7 +55,7 @@ Defines are extremely important and fundamental structures, protected by this co
 > Head:       camelCase
 > Values:     SCREAMING_SNAKE_CASE
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 enum enumerationValues
 {
@@ -60,7 +71,7 @@ enum enumerationValues
 > Instance:   snake_case
 > Variables:  snake_case
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 struct personData
 {
@@ -84,7 +95,7 @@ int main(int argc, char *argv[])
 > Postfix:     _t
 > Variables:  snake_case
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 typedef enum ageSteps
 {
@@ -110,7 +121,7 @@ typedef struct personData
 ```
 > Head:       snake_case
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 int main (void)
 {
@@ -128,7 +139,7 @@ int main (void)
 > Head:       camelCase
 > Params:     snake_case
 ```
-
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
 double Calculator_factorialCalculate(unsigned int base_number) 
 {
