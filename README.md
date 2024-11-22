@@ -6,7 +6,8 @@ This document refers to a proposed C coding convention developed by me, Rafael V
 
 I hope that, if it fits your style, you consider adopting all or some aspects of the pragmatic organization outlined in this document, as it is derived from practical experience in the job market with the language.
 
-> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 Project:
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
+
 [Simple RPN Calculator Project That Uses This Convention](https://github.com/RafaelVVolkmer/RPN-Calculator)
 
 ## > 𝐀𝐥𝐥𝐦𝐚𝐧 𝐂𝐨𝐝𝐞 𝐒𝐭𝐲𝐥𝐞
