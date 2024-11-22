@@ -88,7 +88,6 @@ int main(int argc, char *argv[])
     return 0;
 }
 ```
-
 ## 
 ### - 𝐓𝐲𝐩𝐞𝐝𝐞𝐟 𝐍𝐚𝐦𝐞𝐬
 
@@ -116,7 +115,6 @@ typedef struct personData
     char *name;
 } person_t;
 ```
-...
 ## 
 ### - 𝐕𝐚𝐫𝐢𝐚𝐛𝐥𝐞 𝐍𝐚𝐦𝐞𝐬
 
@@ -135,7 +133,6 @@ int main (void)
 ```
 ## 
 ### - 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧 𝐍𝐚𝐦𝐞𝐬
-
 ```
 > Prefix:     CamelCase_ (module name)
 > Head:       camelCase
@@ -161,8 +158,6 @@ end_of_function:
     return ret;
 } 
 ```
-
-...
 
 # > 𝐂𝐨𝐦𝐦𝐞𝐧𝐭𝐬
 
