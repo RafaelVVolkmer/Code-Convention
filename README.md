@@ -27,7 +27,7 @@ int main(void)
 }
 ```
 
-## > Modules
+## > 𝐌𝐨𝐝𝐮𝐥𝐞𝐬
 
 The structure of a C codebase should always be kept modularized, meaning it should be separated into code sets that encompass the handling of specific functionalities. These modules should then be included in the main file to generate the binary. Thus, the .h and .c structures are used as follows:
 
