@@ -6,6 +6,8 @@ This document refers to a proposed C coding convention developed by me, Rafael V
 
 I hope that, if it fits your style, you consider adopting all or some aspects of the pragmatic organization outlined in this document, as it is derived from practical experience in the job market with the language.
 
+[Simple RPN Calculator Project That Uses This Convention](https://github.com/RafaelVVolkmer/RPN-Calculator)
+
 ## > 𝐀𝐥𝐥𝐦𝐚𝐧 𝐂𝐨𝐝𝐞 𝐒𝐭𝐲𝐥𝐞
 
 The Allman style, also known as BSD indent style, is characterized by placing braces on their own lines. This style enhances readability by clearly delineating code blocks, making it easier to identify the beginning and end of structures such as functions, loops, and conditionals.
