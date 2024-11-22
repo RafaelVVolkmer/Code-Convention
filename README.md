@@ -143,6 +143,8 @@ int main (void)
 ```
 > 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
 ```c
+double Calculator_factorialCalculate(unsigned int base_number);
+
 double Calculator_factorialCalculate(unsigned int base_number) 
 {
     double ret = 0u;
