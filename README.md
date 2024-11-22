@@ -27,7 +27,7 @@ int main(void)
 }
 ```
 
-## > 𝐌𝐨𝐝𝐮𝐥𝐞𝐬
+# > 𝐌𝐨𝐝𝐮𝐥𝐞𝐬
 
 The structure of a C codebase should always be kept modularized, meaning it should be separated into code sets that encompass the handling of specific functionalities. These modules should then be included in the main file to generate the binary. Thus, the .h and .c structures are used as follows:
 
@@ -52,7 +52,7 @@ Calculator (module) -> calculator.h / calculator.c
 StateMachine (module) -> statemachine.h / statemachine.c
 ```
 
-## > 𝐍𝐨𝐦𝐞𝐧𝐜𝐥𝐚𝐭𝐮𝐫𝐞
+# > 𝐍𝐨𝐦𝐞𝐧𝐜𝐥𝐚𝐭𝐮𝐫𝐞
 
 Naming in C is an extremely important aspect. It is always necessary to maintain standardized names, with a clean architecture, following the same flow throughout the code, differentiating the types of structures present. Names should always be designed to facilitate the reader's understanding, making them more palatable. Thus, the convention follows the following terms:
 
