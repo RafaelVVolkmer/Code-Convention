@@ -29,6 +29,29 @@ int main(void)
 
 ## > Modules
 
+The structure of a C codebase should always be kept modularized, meaning it should be separated into code sets that encompass the handling of specific functionalities. These modules should then be included in the main file to generate the binary. Thus, the .h and .c structures are used as follows:
+
+```c
+Header file (.h) -> Prototypes of public functions and structures.
+```
+
+```c
+Source file (.c) -> Implementation of the logic for private functions and structures.
+```
+
+> 𝐄𝐱𝐚𝐦𝐩𝐥𝐞:
+
+We have a calculator in C that operates on a state machine. To achieve this, we can separate it into two modules: one that handles the operations and state transitions of the machine, and another responsible for the calculator's operational functions. This results in the creation of four files, two for each module:
+
+> 
+```c
+Calculator (module) -> calculator.h / calculator.c
+```
+
+```c
+StateMachine (module) -> statemachine.h / statemachine.c
+```
+
 ## > 𝐍𝐨𝐦𝐞𝐧𝐜𝐥𝐚𝐭𝐮𝐫𝐞
 ...
 ## 
