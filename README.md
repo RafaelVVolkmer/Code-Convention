@@ -75,7 +75,7 @@ int Calculator_makeOperation(int num_a, int num_b, calculator_ops_t operation)
              (operation == CALCULATOR_MUL) ? (int)(num_a * num_b) :
              (operation == CALCULATOR_DIV) ? (int)(num_a / num_b) : 0u;
 
-    return result
+    return result;
 };
 ```
 
