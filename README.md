@@ -213,4 +213,224 @@ end_of_function:
 
 # > 𝐂𝐨𝐦𝐦𝐞𝐧𝐭𝐬
 
+```c
+ /** ============================================================================
+    @addtogroup StackOperation
+    @addtogroup StackOperation stack_ops
+
+    @package    stack_ops
+    @brief      This module provides functionalities for stack operations,
+                including managing operator and value stacks for an RPN calculator.
+
+    @file       stackops.h
+
+    @author     Rafael V. Volkmer (rafael.v.volkmer@gmail.com)
+    @date       16.11.2024
+ 
+    @details    The Stack Operations module manages operator and value stacks used 
+                in a Reverse Polish Notation (RPN) calculator. 
+                It provides functionalities to push and pop operators and numerical 
+                values, check stack states, and peek at the top elements without 
+                odifying the stacks.
+     
+    @note       - Ensure that the stacks are properly initialized before 
+                  performing any push or pop operations.
+                - The module is designed for single-threaded environments. 
+                  For multi-threaded applications, synchronization mechanisms 
+                  should be implemented to ensure thread safety.
+     
+    @see        - Stack_pushOp
+                - Stack_popOp 
+                - Stack_peekOp
+                - Stack_isEmpty
+                - Stack_pushVal
+                - Stack_popVal
+                - Stack_isEmptyVal
+ =========================================================================== **/
+ ```
+
+```c
+ /** ===========================================================================
+    @ingroup    StackOperation
+    @addtogroup StackOperation stack_ops
+
+    @package    stack_ops
+    @brief      This module provides functionalities for stack operations,
+                including managing operator and value stacks for an RPN 
+                calculator.
+
+    @file       stackops.c
+    @headerfile stackops.h
+
+    @author     Rafael V. Volkmer (rafael.v.volkmer@gmail.com)
+    @date       16.11.2024
+ 
+    @details    The Stack Operations module manages operator and value stacks 
+                used in a Reverse Polish Notation (RPN) calculator. 
+                It provides functionalities to push and pop operators and 
+                numerical values, check stack states, and peek at the top 
+                elements without odifying the stacks.
+     
+    @note       - Ensure that the stacks are properly initialized before 
+                  performing any push or pop operations.
+                - The module is designed for single-threaded environments. 
+                  For multi-threaded applications, synchronization mechanisms 
+                  should be implemented to ensure thread safety.
+     
+    @see        - Stack_pushOp
+                - Stack_popOp 
+                - Stack_peekOp
+                - Stack_isEmpty
+                - Stack_pushVal
+                - Stack_popVal
+                - Stack_isEmptyVal
+ =========================================================================== **/
+
+ ```
+```c
+/* ==================================== *\
+ *             INCLUDED FILE            *
+\* ==================================== */
+
+/*< Dependencies >*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+
+/*< Implements >*/
+#include <stackops.h>
+ ```
+
+```c
+/** ====================================
+  @def      FUNCTION_SUCCESS
+  @package  stack_ops
+  @brief    Indicates successful function 
+            execution.
+     
+  @details  Represents a successful 
+            operation, typically with 
+            a value of 0.
+ ==================================== **/ 
+#define FUNCTION_SUCCESS    (unsigned int)(0U)
+```
+
+```c
+/** ============================================================================
+  @enum     operatorIndex
+  @package  RPN_calculator
+
+  @typedef  operator_index_t
+
+  @brief    Defines indices for operators.
+
+  @details  Enumerates the indices corresponding to supported operators,
+            used for operator identification and lookup.
+ =========================================================================== **/
+typedef enum operatorIndex
+{
+    OP_ADD,    /*< Addition operator '+'           >*/
+    OP_SUB,    /*< Subtraction operator '-'        >*/
+    OP_MUL,    /*< Multiplication operator '*'     >*/
+    OP_DIV,    /*< Division operator '/'           >*/
+    OP_POW,    /*< Exponentiation operator '^'     >*/
+    OP_FACT,   /*< Factorial operator '!'          >*/
+    OP_COUNT   /*< Total number of operators       >*/
+} operator_index_t;
+```
+
+```c
+/** ============================================================================
+  @struct   stack_val_t
+  @package  stack_ops
+
+  @typedef  stack_val_t
+
+  @brief    Represents the value stack structure.
+
+  @details  Contains an array to store numerical values and an integer to keep 
+            track of the top index of the stack.
+============================================================================ **/
+typedef struct 
+{
+    double  data[MAX_STACK_SIZE];   /*< Array to store numerical values         >*/
+    int     top;                    /*< Index of the top element in the stack   >*/
+} stack_val_t;
+```
+
+```c
+/** ============================================================================
+  @var      operators_str
+  @package  RPN_calculator
+
+  @brief    Array of strings representing operator symbols.
+
+  @details  Maps operator indices defined in `operator_index_t` to their
+            corresponding string representations. This array is used for
+            operator identification and processing in expression parsing and
+            evaluation.
+ =========================================================================== **/
+const char* operators_str[OP_COUNT] =
+{
+    [OP_ADD]  = "+",
+    [OP_SUB]  = "-",
+    [OP_MUL]  = "*",
+    [OP_DIV]  = "/",
+    [OP_POW]  = "^",
+    [OP_FACT] = "!"
+};
+```
+
+```c
+/** ============================================================================
+  @fn       RPNCalculator_applyOperation
+  @package  RPN_calculator
+
+  @brief    Applies an arithmetic operation to two operands.
+
+  @details  Determines the operation to perform based on the operator token and
+            applies it to the provided operands. Supports addition, subtraction,
+            multiplication, division, and exponentiation.
+
+  @param    operation    [in]:  String representing the operator.
+  @param    num_a        [in]:  The first operand.
+  @param    num_b        [in]:  The second operand.
+
+  @return   The result of the operation as a double.
+            Returns - EINVAL if the operation is invalid
+            (e.g., division by zero).
+ =========================================================================== **/
+double RPNCalculator_applyOperation(const char* operation, double num_a, double num_b) 
+{
+    /*< Variable Declarations >*/
+    double ret = FUNCTION_SUCCESS; /*< Return Control >*/
+
+    int operation_index = 0u;
+
+    /*< Security Checks >*/
+    if(operation == NULL)
+    {
+        ret = -(ENOMEM);
+        goto end_of_function;
+    }
+
+    /*< Assign Initial Values >*/
+    operation_index = RPNCalculator_whichOperator(operation);
+
+    /*< Start Function Algorithm >*/
+    ret = (operation_index == OP_ADD)                  ? (num_a + num_b)   :
+          (operation_index == OP_SUB)                  ? (num_a - num_b)   :
+          (operation_index == OP_MUL)                  ? (num_a * num_b)   :
+          (operation_index == OP_DIV && num_b != 0u)   ? (num_a / num_b)   :
+          (operation_index == OP_POW)                  ? pow(num_a, num_b) : -(EINVAL);
+
+    /*< Function Output >*/
+end_of_function:
+    return ret;
+}
+```
+```c
+/*< end of file >*/
+```
 # > 𝐆𝐨𝐨𝐝 𝐂𝐨𝐝𝐢𝐧𝐠 𝐏𝐫𝐚𝐜𝐭𝐢𝐜𝐞𝐬 𝐢𝐧 𝐂
