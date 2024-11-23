@@ -238,14 +238,6 @@ end_of_function:
                 - The module is designed for single-threaded environments. 
                   For multi-threaded applications, synchronization mechanisms 
                   should be implemented to ensure thread safety.
-     
-    @see        - Stack_pushOp
-                - Stack_popOp 
-                - Stack_peekOp
-                - Stack_isEmpty
-                - Stack_pushVal
-                - Stack_popVal
-                - Stack_isEmptyVal
  =========================================================================== **/
  ```
 
@@ -276,14 +268,6 @@ end_of_function:
                 - The module is designed for single-threaded environments. 
                   For multi-threaded applications, synchronization mechanisms 
                   should be implemented to ensure thread safety.
-     
-    @see        - Stack_pushOp
-                - Stack_popOp 
-                - Stack_peekOp
-                - Stack_isEmpty
-                - Stack_pushVal
-                - Stack_popVal
-                - Stack_isEmptyVal
  =========================================================================== **/
 
  ```
